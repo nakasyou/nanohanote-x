@@ -4,6 +4,7 @@ import { TipTapPluginNanoha } from "../utils/tiptap-plugin-nanoha.ts"
 import {
   IconNote,
   IconNoteOff,
+  IconBold,
 } from '@tabler/icons-react'
 import {
   useRef,
@@ -66,11 +67,16 @@ export default (props: Props) => {
               </div>
               <div>
                 {/* コントロールパネル */}
-                <div>
-                  <button class="flex p-2 rounded-full justify-center items-center" onClick={() => {
+                <div class="flex justify-center items-center">
+                  <button class="p-2 rounded-full border" onClick={() => {
                     editor?.chain().focus().toggleSheet().run()
                   }}>
                     <IconNote />
+                  </button>
+                 <button class="p-2 rounded-full border" onClick={() => {
+                    editor?.chain().focus().toggleBold().run()
+                  }}>
+                    <IconBold />
                   </button>
                 </div>
               </div>
