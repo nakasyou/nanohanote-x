@@ -29,37 +29,7 @@ await esbuild.build({
   entryPoints: [...routes],
   minify: true,
   bundle: true,
-  plugins: [
-  /*  {
-      name: "ImportMap",
-      setup (build) {
-        build.onResolve({ filter: /^\/\-\/.+$/ }, args => ({
-          path: args.path,
-          namespace: 'esm-sh-ns',
-        }))
-      //  build.onLoad({ filter: /. namespace: 'esm-sh-ns' }, /*async (args) => {
-         const ts = await (async () => {
-            try {
-              return await Deno.readTextFile(path.join("output", args.path))
-            } catch(e) {}
-            try {
-              return await Deno.readTextFile(path.join("output", args.path) + ".js")
-            } catch(e) {}
-          })()
-          return {
-            contents: ts,
-            loader: 'ts',
-          }
-        })
-      }
-    },*/
-    /*
-      name: "Aleph",
-      setup (build) {
-        
-      }
-    }*/
-  ],
+  plugins: [],
   external: [...Object.keys(importMap.imports)],
   format: "esm"
 })
