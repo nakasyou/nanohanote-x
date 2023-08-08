@@ -12,6 +12,7 @@ import {
 
 export interface Props {
   mode: "edit" | "play"
+  isView: boolean
 }
 export default (props: Props) => {
   const editor = useEditor({
@@ -21,6 +22,12 @@ export default (props: Props) => {
     ],
     content: '<p>TextNote</p>',
   })
+  useEffect(() => {
+    for (const nanohaSheetElement of (viewEditorRef?.current?.getElementsByClassName("nanoha-sheet") || [])) {
+      nanohaSheetElement.dataset.isview = props.isView
+      nanohaSheetElement?.onresetsheet()
+    }
+  }, [props.isView])
   const viewEditorRef = useRef(null)
   useEffect(() => {
     for (const nanohaSheetElement of (viewEditorRef?.current?.getElementsByClassName("nanoha-sheet") || [])) {
@@ -44,6 +51,7 @@ export default (props: Props) => {
         const isView = getIsView()
         reset()
       }
+      nanohaSheetElement.onresetsheet = () => reset()
     }
   }, [props.mode])
   return (
