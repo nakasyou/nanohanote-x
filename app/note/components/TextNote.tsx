@@ -5,6 +5,7 @@ import {
   IconNote,
   IconNoteOff,
   IconBold,
+  IconBoldOff,
 } from '@tabler/icons-react'
 import {
   useRef,
@@ -76,7 +77,7 @@ export default (props: Props) => {
                  <button class="p-2 rounded-full border" onClick={() => {
                     editor?.chain().focus().toggleBold().run()
                   }}>
-                    <IconBold />
+                    <{editor?.isActive('bold') ? IconBold : IconBoldOff} />
                   </button>
                   {editor?.isActive('bold') ? 'active' : 'nonactive'}
                 </div>
