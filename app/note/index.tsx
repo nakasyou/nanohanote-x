@@ -8,9 +8,10 @@ import classnames from "classnames"
 
 export default () => {
   const [mode, setMode] = useState<"edit" | "view">("edit")
+  
   return <>
     <div>This is app!</div>
-    <TextNote />
+    <TextNote mode={mode} />
     <div class="sticky bottom-0">
       <div class="flex justify-center items-center">
         <button onClick={()=>setMode("edit")} className={classnames("p-4 rounded-full", { "bg-lime-300": mode === "edit" })}>
