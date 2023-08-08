@@ -28,7 +28,7 @@ export default () => {
           </button>
         </div>
         <div class="flex justify-center items-center gap-2">
-          <button onClick={()=>setIsView(!isView)} class="p-4 rounded-full drop-shadow-md ">
+          <button onClick={()=>setIsView(!isView)} class="p-4 rounded-full drop-shadow-md bg-emerald-100 hover:bg-emerald-200">
             <IconEye />
           </button>
         </div>
