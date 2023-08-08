@@ -19,7 +19,7 @@ export default () => {
     <>
       <div>
         {/* Edit Mode */}
-        <EditorContent editor={editor} />
+        <EditorContent editor={editor} class="mx-10" />
         <div>
           {/* コントロールパネル */}
           <div>
