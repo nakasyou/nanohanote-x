@@ -18,7 +18,7 @@ for await (const entry of fs.expandGlob("./**/*")) {
 }
 
 const routes: string[] = []
-for await (const entry of fs.expandGlob("./output/routes/**/*.{ts,tsx,mdx}")) {
+for await (const entry of fs.expandGlob("./routes/**/*.{ts,tsx,mdx}")) {
   if (!entry.isFile) {
     continue
   }
@@ -30,15 +30,15 @@ await esbuild.build({
   minify: true,
   bundle: true,
   plugins: [
-    {
+  /*  {
       name: "ImportMap",
       setup (build) {
         build.onResolve({ filter: /^\/\-\/.+$/ }, args => ({
           path: args.path,
           namespace: 'esm-sh-ns',
         }))
-        build.onLoad({ filter: /.*/, namespace: 'esm-sh-ns' }, async (args) => {
-          const ts = await (async () => {
+      //  build.onLoad({ filter: /.*/, namespace: 'esm-sh-ns' }, /*async (args) => {
+         const ts = await (async () => {
             try {
               return await Deno.readTextFile(path.join("output", args.path))
             } catch(e) {}
@@ -52,7 +52,7 @@ await esbuild.build({
           }
         })
       }
-    },
+    },*/
     /*
       name: "Aleph",
       setup (build) {
@@ -60,7 +60,7 @@ await esbuild.build({
       }
     }*/
   ],
-  external: [/*...Object.keys(importMap.imports)*/],
+  external: [...Object.keys(importMap.imports)],
   format: "esm"
 })
 esbuild.stop()
