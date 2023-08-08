@@ -11,6 +11,7 @@ for await (const entry of fs.expandGlob("./**/*")) {
     continue
   }
   if (entry.isDirectory) {
+    console.log(distPath)
     fs.emptyDir(distPath)
   } else if(entry.isFile) {
     await Deno.copyFile(entry.path,distPath)
