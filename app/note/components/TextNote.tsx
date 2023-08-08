@@ -77,7 +77,7 @@ export default (props: Props) => {
                  <button class="p-2 rounded-full border" onClick={() => {
                     editor?.chain().focus().toggleBold().run()
                   }}>
-                    <{editor?.isActive('bold') ? IconBold : IconBoldOff} />
+                    {editor?.isActive('bold') ? <IconBold /> : <IconBoldOff />}
                   </button>
                   {editor?.isActive('bold') ? 'active' : 'nonactive'}
                 </div>
