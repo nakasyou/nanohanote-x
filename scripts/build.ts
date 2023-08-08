@@ -30,7 +30,10 @@ await esbuild.build({
   minify: true,
   bundle: true,
   plugins: [
-    ...denoPlugins()
+    ...denoPlugins({
+      configPath: "./deno.json",
+      importMapURL: "./import_map.json",
+    })
     /*
       name: "Aleph",
       setup (build) {
