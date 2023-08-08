@@ -3,8 +3,7 @@ import * as fs from "https://deno.land/std@0.192.0/fs/mod.ts"
 import * as path from "https://deno.land/std@0.192.0/path/mod.ts"
 
 import esbuildCachePlugin from 'https://deno.land/x/esbuild_plugin_cache_deno/mod.ts'
-import lockMap from '../deno.lock' assert { type: 'json' };
-import importMap from "../import_map.json" assert { type: "json" }
+const lockMap = JSON.parse(await Deno.readTextFile("deno.lock"))
 
 for await (const entry of fs.expandGlob("./**/*")) {
   const distPath = path.join("dist",entry.path.replace(Deno.cwd(), ""))
