@@ -28,12 +28,7 @@ await esbuild.build({
   minify: true,
   bundle: true,
   plugins: [
-    esbuildCachePlugin({
-      lockMap,
-      denoCacheDirectory: await esbuildCachePlugin.util.getDenoDir(),
-      importmap: importMap,
-    }),
-    /*{
+    /*
       name: "Aleph",
       setup (build) {
         
