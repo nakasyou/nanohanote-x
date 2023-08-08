@@ -41,7 +41,7 @@ export default (props: Props) => {
                {/* View Mode */}
               <div class="p-4 roundedxmd border">
                 <div dangerouslySetInnerHTML={{
-                  __html: editor.content
+                  __html: editor.getHTML()
                 }}/>
               </div>
             </div>)
