@@ -16,7 +16,7 @@ export default function Home() {
         <div>
           <div onClick={()=>{
             location.href = "/notes/" + crypto.randomUUID()
-          }>ノートを作成</div>
+          }}>ノートを作成</div>
         </div>
       </div>
     </>
