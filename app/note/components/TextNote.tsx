@@ -31,9 +31,11 @@ export default (props: Props) => {
         if (getIsView()) {
           nanohaSheetElement.classList.add("bg-red-100")
           nanohaSheetElement.classList.remove("bg-red-500")
+          nanohaSheetElement.classList.remove("text-transparent")
         } else {
           nanohaSheetElement.classList.remove("bg-red-100")
           nanohaSheetElement.classList.add("bg-red-500")
+          nanohaSheetElement.classList.add("text-transparent")
         }
       }
       reset()
@@ -52,7 +54,9 @@ export default (props: Props) => {
         props.mode === "edit" ? 
           (<div>
               {/* Edit Mode */}
-              <EditorContent editor={editor} class="p-4 rounded-md border" />
+              <div class="p-4 rounded-md border">
+                <EditorContent editor={editor} />
+              </div>
               <div>
                 {/* コントロールパネル */}
                 <div>
