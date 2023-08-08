@@ -46,7 +46,7 @@ export default (props: Props) => {
   return (
     <>
       <div class="mx-10">
-        {editor.getHTML()}
+        {editor?.getHTML()}
       {
         props.mode === "edit" ? 
           (<div>
