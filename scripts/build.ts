@@ -1,6 +1,7 @@
 import * as esbuild from "https://deno.land/x/esbuild@v0.17.12/mod.js"
 import * as fs from "https://deno.land/std@0.192.0/fs/mod.ts"
 import * as path from "https://deno.land/std@0.192.0/path/mod.ts"
+import importMap from "../import_map.json" assert { type: "json" }
 
 for await (const entry of fs.expandGlob("./**/*")) {
   const distPath = path.join("dist",entry.path.replace(Deno.cwd(), ""))
@@ -35,7 +36,7 @@ await esbuild.build({
       }
     }*/
   ],
-  external: [...Object.keys(importMap.imports)],
+  external: [/*...Object.keys(importMap.imports)*/],
   format: "esm"
 })
 esbuild.stop()
