@@ -38,7 +38,7 @@ await esbuild.build({
           namespace: 'esm-sh-ns',
         }))
         build.onLoad({ filter: /.*/, namespace: 'esm-sh-ns' }, async (args) => ({
-          contents: `export default "${args.path}"` ,
+          contents: await Deno.readTextFile(path.join("output", args.path) ,
           loader: 'ts',
         }))
       }
