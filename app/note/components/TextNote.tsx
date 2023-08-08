@@ -19,7 +19,7 @@ export default () => {
     <>
       <div class="mx-10">
         {/* Edit Mode */}
-        <EditorContent editor={editor} class="p-4 rounded-md border " />
+        <EditorContent editor={editor} class="m-4 rounded-md border " />
         <div>
           {/* コントロールパネル */}
           <div>
