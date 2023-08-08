@@ -2,16 +2,19 @@ import TextNote from "./components/TextNote.tsx"
 import {
   IconPlayerPlay,
   IconEdit,
+  IconEye,
 } from "@tabler/icons-react"
 import { useState } from "react"
 import classnames from "classnames"
 
 export default () => {
   const [mode, setMode] = useState<"edit" | "play">("edit")
+  const [isView, setIsView] = useState(false)
+
   
   return <>
     <div>This is app!</div>
-    <TextNote mode={mode} />
+    <TextNote mode={mode} isView={isView} />
     
     <div class="fixed bottom-0">
       {/* Navbar */}
@@ -25,7 +28,9 @@ export default () => {
           </button>
         </div>
         <div>
-          
+          <button onClick={()=>setIsView(!isView)}>
+            <IconEye />
+          </button>
         </div>
       </div>
     </div>
