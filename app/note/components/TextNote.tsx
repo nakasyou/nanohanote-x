@@ -12,7 +12,7 @@ export default () => {
       StarterKit,
       TipTapPluginNanoha,
     ],
-    content: '<p>TextNote<span class="nanoha-sheet">です</span></p>',
+    content: '<p>TextNote</p>',
   })
 
   return (
