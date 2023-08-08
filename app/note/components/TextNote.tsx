@@ -24,7 +24,7 @@ export default () => {
           {/* コントロールパネル */}
           <div>
             <button class="flex p-2 rounded-full justify-center items-center" onClick={() => {
-              editor?.chain().focus().toggleBold().run()
+              editor?.chain().focus().toggleSheet().run()
             }}>
               <IconNote />
             </button>
