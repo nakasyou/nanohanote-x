@@ -3,7 +3,7 @@ import * as fs from "https://deno.land/std@0.192.0/fs/mod.ts"
 import * as path from "https://deno.land/std@0.192.0/path/mod.ts"
 
 import esbuildCachePlugin from 'https://deno.land/x/esbuild_plugin_cache_deno/mod.ts'
-import lockMap from './lock.json' assert { type: 'json' };
+import lockMap from '../lock.json' assert { type: 'json' };
 import importMap from "../import_map.json" assert { type: "json" }
 
 for await (const entry of fs.expandGlob("./**/*")) {
