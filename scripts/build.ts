@@ -13,6 +13,8 @@ for await (const entry of fs.expandGlob("./**/*")) {
   if (entry.isDirectory) {
     fs.emptyDir(distPath)
   } else if(entry.isFile) {
+    console.log(await Deno.stats(entry.path))
+    console.log(await Deno.stats(distPath))
     await Deno.copyFile(entry.path,distPath)
   }
 }
