@@ -11,7 +11,7 @@ import {
 } from "react"
 
 export interface Props {
-  mode: "edit" | "view"
+  mode: "edit" | "play"
 }
 export default (props: Props) => {
   const editor = useEditor({
