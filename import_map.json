@@ -15,7 +15,7 @@
     "react-dom": "https://esm.sh/v130/react-dom@18.2.0",
     "react-dom/": "https://esm.sh/v130/react-dom@18.2.0/",
     "@tiptap/": "https://esm.sh/@tiptap/",
-    "@tabler/icons-preact": "https://esm.sh/@tabler/icons-preact"
+    "@tabler/icons-react": "https://esm.sh/@tabler/icons-react"
   },
   "scopes": {}
 }
