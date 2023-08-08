@@ -12,7 +12,9 @@ export default () => {
   return <>
     <div>This is app!</div>
     <TextNote mode={mode} />
-    <div class="sticky bottom-0">
+    
+    <div class="fixed bottom-0">
+      {/* Navbar */}
       <div class="flex justify-center items-center">
         <button onClick={()=>setMode("edit")} className={classnames("p-4 rounded-full", { "bg-lime-300": mode === "edit" })}>
           <IconEdit />
