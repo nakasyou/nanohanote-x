@@ -1,32 +1,19 @@
-import { Head, Link } from "aleph/react";
+import { Head, Link } from "aleph/react"
+import Header from "../components/Header.tsx"
 
-export default function Index() {
+export default function Home() {
   return (
-    <div className="screen index">
+    <>
       <Head>
-        <title>Aleph.js</title>
-        <meta name="description" content="The Fullstack Framework in Deno." />
+        <title>NanohaNote</title>
       </Head>
-      <p className="logo">
-        <img src="./assets/logo.svg" width="75" height="75" title="Aleph.js" />
-      </p>
-      <h1>
-        The Fullstack Framework in Deno.
-      </h1>
-      <p>
-        <strong>Aleph.js</strong> gives you the best developer experience for building web applications<br />{" "}
-        with modern toolings.
-      </p>
-      <div className="external-links">
+      <Header />
+      <div>
+        <div>
+          <img src="/nanohanote.svg" class="mx-auto"/>
+        </div>
+        <div class="text-center">NanohaNoteは、「じぶん」で作る学習用ノートブックです。</div>
       </div>
-      <nav>
-        <Link
-          role="button"
-          to="/todos"
-        >
-          Todos App Demo
-        </Link>
-      </nav>
-    </div>
+    </>
   );
 }
