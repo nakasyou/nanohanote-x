@@ -25,6 +25,7 @@ export default (props: Props) => {
   useEffect(() => {
     for (const nanohaSheetElement of (viewEditorRef?.current?.getElementsByClassName("nanoha-sheet") || [])) {
       nanohaSheetElement.dataset.isview = "true"
+      nanohaSheetElement.style = ""
       const getIsView = (): boolean => (nanohaSheetElement.dataset.isview === "true")
       const reset = () => {
         if (getIsView()) {
