@@ -11,7 +11,7 @@ import {
   useRef,
   useEffect,
 } from "react"
-
+import classNames from "classnames"
 export interface Props {
   mode: "edit" | "play"
   isView: boolean
@@ -59,9 +59,7 @@ export default (props: Props) => {
   return (
     <>
       <div class="mx-10">
-      {
-        props.mode === "edit" ? 
-          (<div>
+          <div className={classNames({ hidden: props.mode === "edit" })}>
               {/* Edit Mode */}
               <div class="p-4 rounded-md border">
                 <EditorContent editor={editor} />
@@ -82,16 +80,16 @@ export default (props: Props) => {
                   {editor?.isActive('bold') ? 'active' : 'nonactive'}
                 </div>
               </div>
-             </div>) : 
-            (<div>
+             </div>)
+            <div className={classNames({ hidden: props.mode === "play" })}>
                {/* View Mode */}
-              <div class="p-4 roundedxmd border">
+              <div class="p-4 rounded-md border">
                 <div ref={viewEditorRef} dangerouslySetInnerHTML={{
                   __html: editor.getHTML()
                 }}/>
               </div>
-            </div>)
-            }
+            </div>
+            
       </div>
     </>
   )
