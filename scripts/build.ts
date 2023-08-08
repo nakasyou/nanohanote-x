@@ -4,7 +4,7 @@ import * as path from "https://deno.land/std@0.192.0/path/mod.ts"
 
 for await (const entry of fs.expandGlob("./**/*")) {
   const distPath = path.join("dist",entry.path.replace(Deno.cwd(), ""))
-  if (entry.path.includes("dist") || entry.path.includes(".git") || entry.path.includes(".vscode")) {
+  if (entry.path.includes("dist") || entry.path.includes(".git") || entry.path.includes(".vscode") || entry.path.includes("output")  ) {
     continue
   }
   if (entry.isDirectory) {
