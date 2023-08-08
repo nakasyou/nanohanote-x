@@ -17,14 +17,14 @@ export default () => {
 
   return (
     <>
-      <div>
+      <div class="mx-10">
         {/* Edit Mode */}
-        <EditorContent editor={editor} class="mx-10" />
+        <EditorContent editor={editor} class="p-4 rounded-md border " />
         <div>
           {/* コントロールパネル */}
           <div>
             <button class="flex p-2 rounded-full justify-center items-center" onClick={() => {
-              editor?.chain().focus().toggleSheet().run()
+              editor?.chain().toggleSheet().run()
             }}>
               <IconNote />
             </button>
