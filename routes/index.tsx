@@ -10,7 +10,7 @@ export default function Home() {
       <Header />
       <div>
         <div>
-          <img src="/nanohanote.svg" class="mx-auto"/>
+          <img src="/assets/nanohanote.svg" class="mx-auto"/>
         </div>
         <div class="text-center">NanohaNoteは、「じぶん」で作る学習用ノートブックです。</div>
       </div>
