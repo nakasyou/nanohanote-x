@@ -5,6 +5,10 @@ import {
   IconNote,
   IconNoteOff,
 } from '@tabler/icons-react'
+import {
+  useRef,
+  useEffect,
+} from "react"
 
 export interface Props {
   mode: "edit" | "view"
@@ -17,7 +21,28 @@ export default (props: Props) => {
     ],
     content: '<p>TextNote</p>',
   })
-
+  const viewEditorRef = useRef(null)
+  useEffect(() => {
+    for (const nanohaSheetElement of viewEditorRef.current.getElementsByClassName("nanoha-sheet")) {
+      nanohaSheetElement.dataset.isview = "true"
+      const getIsView = (): boolean => (nanohaSheetElement.dataset.isview === "true")
+      const reset = () => {
+        if (getIsView()) {
+          nanohaSheetElement.classList.add("bg-red-100")
+          nanohaSheetElement.classList.remove("bg-red-500")
+        } else {
+          nanohaSheetElement.classList.remove("bg-red-100")
+          nanohaSheetElement.classList.add("bg-red-500")
+        }
+      }
+      reset()
+      nanohaSheetElement.onclick = () => {
+        nanohaSheetElement.dataset.isview = !getIsView()
+        const isView = getIsView()
+        reset()
+      }
+    }
+  }, [props.mode])
   return (
     <>
       <div class="mx-10">
@@ -40,7 +65,7 @@ export default (props: Props) => {
             (<div>
                {/* View Mode */}
               <div class="p-4 roundedxmd border">
-                <div dangerouslySetInnerHTML={{
+                <div ref={viewEditorRef} dangerouslySetInnerHTML={{
                   __html: editor.getHTML()
                 }}/>
               </div>
