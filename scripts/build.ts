@@ -7,7 +7,7 @@ import importMap from "../import_map.json" assert { type: "json" }
 
 for await (const entry of fs.expandGlob("./**/*")) {
   const distPath = path.join("dist",entry.path.replace(Deno.cwd(), ""))
-  if (entry.path.includes("dist")) {
+  if (entry.path.includes("dist") || entry.path.includes(".git")) {
     continue
   }
   if (entry.isDirectory) {
