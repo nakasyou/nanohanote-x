@@ -16,7 +16,7 @@
     "react-dom/": "https://esm.sh/v130/react-dom@18.2.0/",
     "@tiptap/": "https://esm.sh/@tiptap/",
     "@tabler/icons-react": "https://esm.sh/@tabler/icons-react",
-    "classNames": "https://esm.sh/classnames"
+    "classnames": "https://esm.sh/classnames"
   },
   "scopes": {}
 }
