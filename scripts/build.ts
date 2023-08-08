@@ -38,14 +38,14 @@ await esbuild.build({
           namespace: 'esm-sh-ns',
         }))
         build.onLoad({ filter: /.*/, namespace: 'esm-sh-ns' }, async (args) => {
-          const ts = await  (async () => {
+          const ts = await (async () => {
             try {
               return await Deno.readTextFile(path.join("output", args.path))
             } catch(e) {}
             try {
               return await Deno.readTextFile(path.join("output", args.path) + ".js")
             } catch(e) {}
-          })
+          })()
           return {
             contents: ts,
             loader: 'ts',
