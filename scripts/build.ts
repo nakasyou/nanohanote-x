@@ -18,7 +18,7 @@ for await (const entry of fs.expandGlob("./**/*")) {
 }
 
 const routes: string[] = []
-for await (const entry of fs.expandGlob("./routes/**/*.{ts,tsx,mdx}")) {
+for await (const entry of fs.expandGlob("./output/routes/**/*.{ts,tsx,mdx}")) {
   if (!entry.isFile) {
     continue
   }
@@ -30,10 +30,19 @@ await esbuild.build({
   minify: true,
   bundle: true,
   plugins: [
-    ...denoPlugins({
-      configPath: "./deno.json",
-      importMapURL: "./import_map.json",
-    })
+    {
+      name: "ImportMap",
+      setup (build) {
+        build.onResolve({ filter: /^\/\-\/.+$/ }, args => ({
+          path: args.path,
+          namespace: 'esm-sh-ns',
+        }))
+        build.onLoad({ filter: /.*/, namespace: 'esm-sh-ns' }, async (args) => ({
+          contents: `export default "${args.path}"` ,
+          loader: 'ts',
+        }))
+      }
+    },
     /*
       name: "Aleph",
       setup (build) {
