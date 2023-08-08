@@ -32,7 +32,7 @@ await esbuild.build({
   bundle: true,
   plugins: [
     ...denoPlugins({
-      importMapURL: "../import_map.json"
+      importMapURL: "./import_map.json"
     }),
     /*{
       name: "Aleph",
