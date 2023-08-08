@@ -64,6 +64,7 @@ await esbuild.build({
   format: "esm"
 })
 esbuild.stop()
+ThisIsError
 for await (const entry of fs.expandGlob("./dist/routes/**/*.js")) {
   if (!entry.isFile) {
     continue
