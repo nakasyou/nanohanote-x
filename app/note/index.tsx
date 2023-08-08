@@ -18,7 +18,7 @@ export default () => {
     
     <div class="fixed bottom-0">
       {/* Navbar */}
-      <div class="flex">
+      <div class="flex gap-4">
         <div class="flex justify-center items-center bg-stone-100 rounded-full">
           <button onClick={()=>setMode("edit")} className={classnames("p-4 rounded-full", { "bg-lime-300": mode === "edit" })}>
             <IconEdit />
@@ -27,8 +27,8 @@ export default () => {
             <IconPlayerPlay />
           </button>
         </div>
-        <div>
-          <button onClick={()=>setIsView(!isView)}>
+        <div class="flex justify-center items-center gap-2">
+          <button onClick={()=>setIsView(!isView)} class="p-4 rounded-full drop-shadow-md ">
             <IconEye />
           </button>
         </div>
