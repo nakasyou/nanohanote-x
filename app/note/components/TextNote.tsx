@@ -78,6 +78,7 @@ export default (props: Props) => {
                   }}>
                     <IconBold />
                   </button>
+                  {editor.isActive('bold') ? 'active' : 'nonactive'}
                 </div>
               </div>
              </div>) : 
