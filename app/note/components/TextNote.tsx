@@ -6,7 +6,10 @@ import {
   IconNoteOff,
 } from '@tabler/icons-react'
 
-export default () => {
+export interface Props {
+  mode: "edit" | "view"
+}
+export default (props: Props) => {
   const editor = useEditor({
     extensions: [
       StarterKit,
@@ -18,18 +21,31 @@ export default () => {
   return (
     <>
       <div class="mx-10">
-        {/* Edit Mode */}
-        <EditorContent editor={editor} class="p-4 rounded-md border" />
-        <div>
-          {/* コントロールパネル */}
-          <div>
-            <button class="flex p-2 rounded-full justify-center items-center" onClick={() => {
-              editor?.chain().focus().toggleSheet().run()
-            }}>
-              <IconNote />
-            </button>
-          </div>
-        </div>
+      {
+        props.mode === "edit" ? 
+          (<div>
+              {/* Edit Mode */}
+              <EditorContent editor={editor} class="p-4 rounded-md border" />
+              <div>
+                {/* コントロールパネル */}
+                <div>
+                  <button class="flex p-2 rounded-full justify-center items-center" onClick={() => {
+                    editor?.chain().focus().toggleSheet().run()
+                  }}>
+                    <IconNote />
+                  </button>
+                </div>
+              </div>
+             </div>) : 
+            (<div>
+               {/* View Mode */}
+              <div class="p-4 roundedxmd border">
+                <div dangerouslySetInnerHTML={{
+                  __html: editor.content
+                }}/>
+              </div>
+            </div>)
+            }
       </div>
     </>
   )
