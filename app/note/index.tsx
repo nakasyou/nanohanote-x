@@ -16,7 +16,7 @@ export default () => {
         <button onClick={()=>setMode("edit")} class={classnames({ "bg-lime-300": mode === "edit" })}>
           <IconEdit />
         </button>
-        <button onClick={()=>setMode("view")} class={classnames({ "bg-lime-300": mode === "edit" })}>
+        <button onClick={()=>setMode("view")} class={classnames({ "bg-lime-300": mode === "view" })}>
           <IconEye />
         </button>
       </div>
