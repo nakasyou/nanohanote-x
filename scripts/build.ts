@@ -2,6 +2,7 @@ import * as esbuild from "https://deno.land/x/esbuild@v0.17.12/mod.js"
 import * as fs from "https://deno.land/std@0.192.0/fs/mod.ts"
 import * as path from "https://deno.land/std@0.192.0/path/mod.ts"
 import importMap from "../import_map.json" assert { type: "json" }
+import { denoPlugins } from "https://deno.land/x/esbuild_deno_loader@0.8.1/mod.ts";
 
 for await (const entry of fs.expandGlob("./**/*")) {
   const distPath = path.join("dist",entry.path.replace(Deno.cwd(), ""))
@@ -17,7 +18,7 @@ for await (const entry of fs.expandGlob("./**/*")) {
 }
 
 const routes: string[] = []
-for await (const entry of fs.expandGlob("./output/routes/**/*.{ts,tsx,mdx}")) {
+for await (const entry of fs.expandGlob("./routes/**/*.{ts,tsx,mdx}")) {
   if (!entry.isFile) {
     continue
   }
@@ -29,6 +30,7 @@ await esbuild.build({
   minify: true,
   bundle: true,
   plugins: [
+    ...denoPlugins()
     /*
       name: "Aleph",
       setup (build) {
