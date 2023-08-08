@@ -13,13 +13,12 @@ export default () => {
     <TextNote />
     <div class="sticky bottom-0">
       <div class="flex justify-center items-center">
-        <button onClick={()=>setMode("edit")} className={classnames({ "bg-lime-300": mode === "edit" })}>
+        <button onClick={()=>setMode("edit")} className={classnames("p-4 rounded-full", { "bg-lime-300": mode === "edit" })}>
           <IconEdit />
         </button>
-        <button onClick={()=>setMode("view")} className={classnames({ "bg-lime-300": mode === "view" })}>
+        <button onClick={()=>setMode("view")} className={classnames("p-4 rounded-full", { "bg-lime-300": mode === "view" })}>
           <IconEye />
         </button>
-        { mode }
       </div>
     </div>
   </>
